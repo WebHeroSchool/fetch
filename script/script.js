@@ -1,6 +1,8 @@
-let userName = window.location.search.substring(10);
+let userName = window.location.search;
+let searchParams = new URLSearchParams(userName);
+let user = searchParams.get('username');
 let gitApi = 'https://api.github.com/users/';
-let gitProfileLink = gitApi + userName;
+let gitProfileLink = gitApi + user;
 
 fetch(gitProfileLink)
     .then(response => response.json())
